@@ -77,6 +77,13 @@ export default function linkedList() {
     return;
   };
 
+  const contains = function listContains(list, value) {
+    if (list.value === value) return true;
+    if (list.nextNode === null) return false;
+
+    return contains(list.nextNode, value);
+  };
+
   return {
     list,
     append,
@@ -87,5 +94,6 @@ export default function linkedList() {
     returnTail,
     atIndex,
     pop,
+    contains,
   };
 }

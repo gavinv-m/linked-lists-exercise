@@ -28,3 +28,6 @@ console.log(list.atIndex(list.list, 1));
 list.print(list.list);
 list.pop(list.list);
 list.print(list.list);
+
+console.log(list.contains(list.list, 'cat'));
+console.log(list.contains(list.list, 'turtle'));
