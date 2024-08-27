@@ -17,3 +17,6 @@ list.prepend('bear');
 list.print(list.list);
 
 console.log(`${list.size(list.list)} including head and tail nodes`);
+
+console.log(list.returnHead());
+console.log(list.returnTail());

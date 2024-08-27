@@ -40,11 +40,21 @@ export default function linkedList() {
     return 1 + size(list.nextNode);
   };
 
+  const returnHead = function returnHeadNode() {
+    return head;
+  };
+
+  const returnTail = function returnTailNode() {
+    return tail;
+  };
+
   return {
     list,
     append,
     print,
     prepend,
     size,
+    returnHead,
+    returnTail,
   };
 }
