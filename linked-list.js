@@ -33,10 +33,18 @@ export default function linkedList() {
     return;
   };
 
+  const size = function returnSize(list) {
+    if (list.nextNode === null) {
+      return 1;
+    }
+    return 1 + size(list.nextNode);
+  };
+
   return {
     list,
     append,
     print,
     prepend,
+    size,
   };
 }

@@ -15,3 +15,5 @@ list.prepend('lion');
 list.prepend('zebra');
 list.prepend('bear');
 list.print(list.list);
+
+console.log(`${list.size(list.list)} including head and tail nodes`);
