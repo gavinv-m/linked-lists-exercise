@@ -20,3 +20,11 @@ console.log(`${list.size(list.list)} including head and tail nodes`);
 
 console.log(list.returnHead());
 console.log(list.returnTail());
+
+console.log(list.atIndex(list.list, -1));
+console.log(list.atIndex(list.list, 12));
+console.log(list.atIndex(list.list, 1));
+
+list.print(list.list);
+list.pop(list.list);
+list.print(list.list);

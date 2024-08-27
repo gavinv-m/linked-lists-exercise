@@ -48,6 +48,35 @@ export default function linkedList() {
     return tail;
   };
 
+  const atIndex = function returnAtIndex(list, reqIndex, currentIndex = 0) {
+    if (currentIndex === 0) {
+      if (reqIndex < 0) return 'Enter a non-negative index';
+
+      const listSize = size(list);
+      if (reqIndex >= listSize) return 'Index exceeds list size';
+    }
+
+    if (reqIndex === currentIndex) {
+      return list;
+    }
+
+    return atIndex(list.nextNode, reqIndex, currentIndex + 1);
+  };
+
+  const pop = function removeLastNode(list) {
+    // List with only head and tail
+    if (list.nextNode.nextNode === null) return;
+
+    if (list.nextNode.nextNode.nextNode === null) {
+      const tail = list.nextNode.nextNode;
+      list.nextNode = tail;
+      return;
+    }
+
+    pop(list.nextNode);
+    return;
+  };
+
   return {
     list,
     append,
@@ -56,5 +85,7 @@ export default function linkedList() {
     size,
     returnHead,
     returnTail,
+    atIndex,
+    pop,
   };
 }
