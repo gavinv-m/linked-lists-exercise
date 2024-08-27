@@ -84,6 +84,13 @@ export default function linkedList() {
     return contains(list.nextNode, value);
   };
 
+  const find = function findValueIndex(list, value, index = 0) {
+    if (list.value === value) return index;
+    if (list.nextNode === null) return 'Not found';
+
+    return find(list.nextNode, value, index + 1);
+  };
+
   return {
     list,
     append,
@@ -95,5 +102,6 @@ export default function linkedList() {
     atIndex,
     pop,
     contains,
+    find,
   };
 }
