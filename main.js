@@ -16,7 +16,7 @@ list.prepend('zebra');
 list.prepend('bear');
 list.print(list.list);
 
-// List size
+// // List size
 console.log(`${list.size(list.list)} including head and tail nodes`);
 
 // Return head and tail
@@ -40,3 +40,13 @@ console.log(list.contains(list.list, 'turtle'));
 // Find
 console.log(list.find(list.list, 'cat'));
 console.log(list.find(list.list, 'turtle'));
+
+// Insert at
+list.print(list.list);
+list.insert(list.list, 'lemur', 2);
+list.print(list.list);
+
+// Remove at
+list.print(list.list);
+list.removeAt(list.list, 3);
+list.print(list.list);

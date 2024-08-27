@@ -91,6 +91,48 @@ export default function linkedList() {
     return find(list.nextNode, value, index + 1);
   };
 
+  const validateIndex = (list, reqIndex) => {
+    if (reqIndex < 0) return 'Enter a non-negative index';
+    if (reqIndex === 0) return 'Cannot modify head node';
+
+    const listSize = size(list);
+    if (reqIndex === listSize - 1) return 'Cannot modify tail node';
+    if (reqIndex >= listSize) return 'Index exceeds list size';
+
+    return null;
+  };
+
+  const insert = function insertAtIndex(list, value, reqIndex, index = 0) {
+    if (index === 0) {
+      const validationError = validateIndex(list, reqIndex);
+      if (validationError !== null) return validationError;
+    }
+
+    if (index === reqIndex - 1) {
+      const nextNodeHolder = list.nextNode;
+      const newNode = node(value, nextNodeHolder);
+      list.nextNode = newNode;
+      return;
+    }
+
+    return insert(list.nextNode, value, reqIndex, index + 1);
+  };
+
+  const removeAt = function removeAtIndex(list, reqIndex, index = 0) {
+    if (index === 0) {
+      const validationError = validateIndex(list, reqIndex);
+      if (validationError !== null) return validationError;
+    }
+
+    if (index === reqIndex - 1) {
+      const remainingNodes = list.nextNode.nextNode;
+      list.nextNode = remainingNodes;
+      return;
+    }
+
+    return removeAt(list.nextNode, reqIndex, index + 1);
+  };
+
   return {
     list,
     append,
@@ -103,5 +145,7 @@ export default function linkedList() {
     pop,
     contains,
     find,
+    insert,
+    removeAt,
   };
 }
